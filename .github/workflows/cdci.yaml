@@ -1,4 +1,4 @@
-name:CDCI
+name: CDCI
 
 on:
   push:
@@ -20,4 +20,3 @@ jobs:
 
       - name: Publish image to DockerHub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/cicd-ec2:latest
-
