@@ -2,7 +2,7 @@ name:CDCI
 
 on:
   push:
-    branches
+    branches:
       - deploy-to-ec2
 
 jobs:
