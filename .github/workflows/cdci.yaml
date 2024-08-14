@@ -20,3 +20,14 @@ jobs:
 
       - name: Publish image to DockerHub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/cicd-ec2:latest
+
+  deploy:
+    needs: build
+    runs-on: aws-ec2
+    steps:
+      - name: Pull Image from DockerHub
+        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cicd-ec2:latest
+      - name: Delete the Old Container
+        run: docker rm -f reactContainer
+      - name: Run Docker Container
+        run: docker run -d -p 5173:80 --name reactContainer ${{ secrets.DOCKERHUB_USERNAME }}/cicd-ec2
