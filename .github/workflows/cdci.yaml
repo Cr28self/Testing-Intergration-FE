@@ -28,6 +28,6 @@ jobs:
       - name: Pull Image from DockerHub
         run: docker pull sanghyunoh/cicd-ec2:latest
       - name: Delete the Old Container
-        run: docker rm -f reactContainer
+        run: docker rm -f reactcontainer
       - name: Run Docker Container
-        run: docker run -d -p 5173:80 --name reactContainer sanghyunoh/cicd-ec2
+        run: docker run -d -p 5173:80 --name reactcontainer sanghyunoh/cicd-ec2
