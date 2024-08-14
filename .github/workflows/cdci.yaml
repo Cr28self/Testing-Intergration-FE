@@ -16,7 +16,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build --target build --platform linux/arm64 -t ${{ secrets.DOCKERHUB_USERNAME }}/cicd-ec2 .
+        run: docker build --target build -t ${{ secrets.DOCKERHUB_USERNAME }}/cicd-ec2 .
 
       - name: Publish image to DockerHub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/cicd-ec2:latest
